@@ -21,7 +21,7 @@ const ContainerProdutos = styled.div`
 
 class App extends React.Component{
   state = {
-     arrayProdutos: [
+    arrayProdutos: [
        {
             id: Date.now(),
             name: "Enterprise",
@@ -180,7 +180,10 @@ class App extends React.Component{
             value: 600000.0,
             imageUrl: "https://picsum.photos/200/150",
         }
-      ]
+      ],
+    carrinho:  [
+        
+    ]
     }
 
     
@@ -188,13 +191,15 @@ class App extends React.Component{
     onAdicionarCarrinho = (produtoId) =>{
         const carrinho = this.state.arrayProdutos.map((produto) => {
             if(produtoId === produto.id){
-                return <div>
-                    <p>{produto.name}</p>
-                    <p>{produto.value}</p>
-                </div>
+                const novoItemCarrinho = {
+                    
+                }
+                return novoItemCarrinho
             }
+            
         })
-        
+        const novoCarrinho = [carrinho]
+            this.setState({carrinho: novoCarrinho})
         
     }
     
@@ -217,7 +222,7 @@ class App extends React.Component{
                 <ContainerProdutos>
                     {novoArray}
                 </ContainerProdutos>
-                <Carrinho />
+                <Carrinho nomeProduto= {this.state.carrinho}/>
             </PaginaInicial>
         )
     }
