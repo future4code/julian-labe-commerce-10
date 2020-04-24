@@ -17,6 +17,8 @@ const ContainerProdutos = styled.div`
 
 /*Produtos - Naves/Foguetes/Ônibus espaciais*/
 
+
+
 class App extends React.Component{
   state = {
      arrayProdutos: [
@@ -179,13 +181,24 @@ class App extends React.Component{
             imageUrl: "https://picsum.photos/200/150",
         }
       ]
-      
-    }
-  /*Produtos - Satélites Antigos*/
-    onClickBotton = () =>{
-        
     }
 
+    
+  /*Produtos - Satélites Antigos*/
+    onAdicionarCarrinho = (produtoId) =>{
+        const carrinho = this.state.arrayProdutos.map((produto) => {
+            if(produtoId === produto.id){
+                return <div>
+                    <p>{produto.name}</p>
+                    <p>{produto.value}</p>
+                </div>
+            }
+        })
+        
+        
+    }
+    
+    
     render (){
         const novoArray = this.state.arrayProdutos.map((produto) => {
             return(
@@ -193,7 +206,8 @@ class App extends React.Component{
                 urlImagem = {produto.imageUrl} 
                 item= {produto.name}
                 valor= {produto.value}
-                onClickBotton = {this.onClickBotton}
+                onFunction = {this.onAdicionarCarrinho}
+                produto = {produto.id}
                 />
 
             )
@@ -203,7 +217,7 @@ class App extends React.Component{
                 <ContainerProdutos>
                     {novoArray}
                 </ContainerProdutos>
-                <Carrinho/>
+                <Carrinho />
             </PaginaInicial>
         )
     }

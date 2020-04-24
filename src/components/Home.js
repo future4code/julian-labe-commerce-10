@@ -23,6 +23,7 @@ const TextoProduto = styled.p`
 `
 /*Estilizacao dos componentes*/
 
+
 export class Home extends React.Component{
     render (){
         return (
@@ -30,7 +31,7 @@ export class Home extends React.Component{
                 <UrlImagem src={this.props.urlImagem}></UrlImagem>
                 <TextoProduto><b>{this.props.item}</b></TextoProduto>
                 <TextoProduto>{this.props.valor}</TextoProduto>
-                <ButtonAdicionaCarrinho onClick={this.props.onClickBotton}>Adicionar ao carrinho</ButtonAdicionaCarrinho>
+                <ButtonAdicionaCarrinho onClick= {this.props.onFunction(this.props.produto)}>Adicionar Carrinho</ButtonAdicionaCarrinho>
             </ContainerProduto>
         )
     
