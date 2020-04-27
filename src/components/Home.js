@@ -30,8 +30,10 @@ export class Home extends React.Component{
             <ContainerProduto>
                 <UrlImagem src={this.props.urlImagem}></UrlImagem>
                 <TextoProduto><b>{this.props.item}</b></TextoProduto>
-                <TextoProduto>{this.props.valor}</TextoProduto>
-                <ButtonAdicionaCarrinho onClick= {this.props.onFunction(this.props.produto)}>Adicionar Carrinho</ButtonAdicionaCarrinho>
+                <TextoProduto>{() => this.props.valor}</TextoProduto>
+                <ButtonAdicionaCarrinho 
+                onClick= {() => this.props.onFunction(this.props.produtoId)}>
+                    Adicionar Carrinho</ButtonAdicionaCarrinho>
             </ContainerProduto>
         )
     
