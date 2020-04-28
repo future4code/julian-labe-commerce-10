@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import {Home} from './components/Home'
 import {Carrinho} from './components/Carrinho'
 
-
 const PaginaInicial = styled.div`
     display: flex;
 `
@@ -215,12 +214,13 @@ class App extends React.Component{
 
             )
         })
+        
         return (
             <PaginaInicial>
                 <ContainerProdutos>
                     {novoArray}
                 </ContainerProdutos>
-                <Carrinho produto={this.state.carrinho}/>
+                <Carrinho produto={this.state.carrinho.name}/>
             </PaginaInicial>
         )
     }
